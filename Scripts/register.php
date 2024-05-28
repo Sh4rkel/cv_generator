@@ -1,30 +1,22 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include 'db.php';
-if (!isset($conn)) {
-    die('$conn is not defined. Check your database connection in db.php.');
-}
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    header("Location: ../Pages/login.html");
-    try {
-        $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':password', $password);
-        $stmt->execute();
-        echo "Query executed successfully.<br>";
-    } catch (PDOException $e) {
-        die("Query failed: " . $e->getMessage() . " in " . $e->getFile() . " on line " . $e->getLine());
-    }
+// Assuming $conn is your mysqli connection
+$stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
 
-    if (!$stmt->execute()) {
-        die("Query execution failed.");
-    }
+// Bind the parameters to the SQL query. 'ss' indicates that both parameters are strings.
+$stmt->bind_param('ss', $username, $password);
+
+// Assuming $username and $password are the values you want to insert
+$username = $_POST['username'];
+$password = $_POST['password'];
+if ($stmt->affected_rows > 0) {
+    // Registration was successful, redirect to main page
+    header('Location: ../Pages/main.html');
+    exit;
+$stmt->execute();
+} else {
+$stmt->close();
+$conn->close();
 }
 ?>

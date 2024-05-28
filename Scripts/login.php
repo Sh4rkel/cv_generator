@@ -1,27 +1,25 @@
 <?php
-session_start();
 include 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+// Assuming $conn is your mysqli connection
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
-    $stmt->bindParam(':username', $username);
-    $stmt->execute();
+// Bind the parameter to the SQL query. 's' indicates that the parameter is a string.
+$stmt->bind_param('s', $username);
 
-    if ($stmt->rowCount() > 0) {
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (password_verify($password, $user['password'])) {
-            // Start a session and set the username session variable
-            session_start();
-            $_SESSION['username'] = $username;
-            header('Location: ../Pages/main.php');
-        } else {
-            echo "Invalid password.";
-        }
-    } else {
-        echo "No user found with this username.";
-    }
+// Assuming $username is the value you want to check
+$username = $_POST['username'];
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    header('Location: ../Pages/main.php');
+    exit;
+} else {
+    // User does not exist
 }
+
+$stmt->close();
+$conn->close();
 ?>
