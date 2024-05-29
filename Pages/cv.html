@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create CV</title>
+    <link rel="stylesheet" href="../Style/cv.css">
+</head>
+<body>
+<div class="form-container">
+    <h1>Create CV</h1>
+    <form action="../Scripts/cv.php" method="post">
+        <h2>Personal Information</h2>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Information:</label>
+                <input type="text" id="contact" name="contact" required>
+            </div>
+        </div>
+        <!-- ... -->
+        <div class="form-group">
+            <h2>Objective</h2>
+            <input type="text" id="objective-input" required>
+            <ul id="objectives"></ul>
+            <button type="button" id="add-objective">Add Objective</button>
+        </div>
+        <div class="form-group">
+            <h2>Education</h2>
+            <input type="text" id="education-input" required>
+            <ul id="educations"></ul>
+            <button type="button" id="add-education">Add Education</button>
+        </div>
+        <div class="form-group">
+            <h2>Skills</h2>
+            <input type="text" id="skill-input" required>
+            <ul id="skills"></ul>
+            <button type="button" id="add-skill">Add Skill</button>
+        </div>
+        <!-- ... -->
+        <div class="form-group">
+            <h2>Experience</h2>
+            <textarea id="experience" name="experience" rows="4" cols="50"></textarea>
+        </div>
+        <div class="form-group">
+            <h2>References</h2>
+            <textarea id="references" name="references" rows="4" cols="50"></textarea>
+        </div>
+        <button type="submit">Create CV</button>
+    </form>
+</div>
+<script src="../javascript/cv.js"></script>
+</body>
+</html>
