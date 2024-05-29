@@ -16,19 +16,22 @@
         <input type="text" id="contact" name="contact" required>
 
         <h2>Objective</h2>
-        <textarea id="objective" name="objective" rows="4" cols="50"></textarea>
+        <input type="text" id="objective" name="objective" required>
 
         <h2>Education</h2>
-        <textarea id="education" name="education" rows="4" cols="50"></textarea>
+        <input type="text" id="education" name="education" required>
 
         <h2>Skills</h2>
-        <textarea id="skills" name="skills" rows="4" cols="50"></textarea>
+        <div id="skills">
+            <input type="text" name="skills[]" required>
+        </div>
+        <button type="button" id="add-skill">Add Skill</button>
 
         <h2>Experience</h2>
-        <textarea id="experience" name="experience" rows="4" cols="50"></textarea>
+        <input type="text" id="experience" name="experience" required>
 
         <h2>References</h2>
-        <textarea id="references" name="references" rows="4" cols="50"></textarea>
+        <input type="text" id="references" name="references" required>
 
         <button type="submit">Create CV</button>
     </form>

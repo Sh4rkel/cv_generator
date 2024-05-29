@@ -1,14 +1,11 @@
 window.onload = function() {
-    var textareas = document.querySelectorAll('textarea');
+    var addSkillButton = document.getElementById('add-skill');
+    var skillsDiv = document.getElementById('skills');
 
-    textareas.forEach(function(textarea) {
-        var charCount = document.createElement('span');
-        charCount.className = 'char-count';
-        charCount.textContent = '0 characters';
-        textarea.parentNode.appendChild(charCount);
-
-        textarea.addEventListener('input', function() {
-            charCount.textContent = textarea.value.length + ' characters';
-        });
+    addSkillButton.addEventListener('click', function() {
+        var newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.name = 'skills[]';
+        skillsDiv.appendChild(newInput);
     });
 };
