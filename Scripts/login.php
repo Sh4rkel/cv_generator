@@ -14,7 +14,7 @@ $stmt->execute();
 
 $result = $stmt->get_result();
 if ($result->num_rows > 0) {
-    header('Location: ../Pages/main.php');
+    header('Location: ../Pages/index.php');
     exit;
 } else {
     // User does not exist

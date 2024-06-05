@@ -22,19 +22,22 @@ switch ($page) {
 
             $username = $_SESSION['username'];
             $result = $conn->query("SELECT * FROM cvs WHERE username = '$username' ORDER BY created_at DESC");
-
-            // Display the CV data
-            echo '<h3>Your CVs</h3>';
-            while ($row = $result->fetch_assoc()) {
-                echo '<p>';
-                echo 'Name: ' . $row['name'] . '<br>';
-                echo 'Contact: ' . $row['contact'] . '<br>';
-                echo 'Objective: ' . $row['objective'] . '<br>';
-                echo 'Education: ' . $row['education'] . '<br>';
-                echo 'Skills: ' . $row['skills'] . '<br>';
-                echo 'Experience: ' . $row['experience'] . '<br>';
-                echo 'References: ' . $row['references'] . '<br>';
-                echo '</p>';
+            if ($result->num_rows > 0) {
+                // Display the CV data
+                echo '<h3>Your CVs</h3>';
+                while ($row = $result->fetch_assoc()) {
+                    echo '<p>';
+                    echo 'Name: ' . $row['name'] . '<br>';
+                    echo 'Contact: ' . $row['contact'] . '<br>';
+                    echo 'Objective: ' . $row['objective'] . '<br>';
+                    echo 'Education: ' . $row['education'] . '<br>';
+                    echo 'Skills: ' . $row['skills'] . '<br>';
+                    echo 'Experience: ' . $row['experience'] . '<br>';
+                    echo 'References: ' . $row['references'] . '<br>';
+                    echo '</p>';
+                }
+            } else {
+                echo "No CVs found.";
             }
         } else {
             echo "Welcome, guest!<br>";
