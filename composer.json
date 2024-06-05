@@ -1,5 +1,5 @@
 {
-  "name": "cv-generator",
+  "name": "filip/cv-generator",
   "description": "Descriere scurtă a aplicației tale",
   "require": {
     "php": "^7.4 || ^8.0",
