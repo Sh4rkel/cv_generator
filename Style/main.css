@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0 15px;
     background-color: #f4f4f4;
     color: #333;
 }
@@ -32,6 +32,21 @@ nav a {
     font-size: 1.2em;
 }
 
+nav span {
+    color: #5cb85c;
+}
+
+body.dark-theme {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-theme header,
+body.dark-theme footer {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
 nav a:hover {
     color: #5cb85c;
 }
@@ -43,6 +58,7 @@ main {
 }
 
 footer {
+    margin-top: 20px;
     background-color: #333;
     color: #fff;
     text-align: center;

@@ -22,6 +22,12 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    margin-top: 20px;
+}
+
+
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -42,6 +48,7 @@ textarea {
 }
 
 button {
+    transition: background-color 0.3s ease;
     width: 100%;
     padding: 10px;
     background: #5cb85c;
@@ -53,4 +60,14 @@ button {
 
 button:hover {
     background: #4cae4c;
+}
+
+input[type="text"],
+input[type="password"] {
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover {
+    border-color: #5cb85c;
 }

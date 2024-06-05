@@ -17,14 +17,15 @@ include '../Scripts/cv_db.php';
     <nav>
         <a href="cv.html">Create CV</a>
         <a href="login.html">Login / Register</a>
+        <button id="theme-switcher">Switch Theme</button>
         <?php if (isset($_SESSION['username'])): ?>
             <span>Welcome, <?php echo $_SESSION['username']; ?>!</span>
         <?php endif; ?>
     </nav>
 </header>
 <main>
-    <h2>Welcome to CV Generator</h2>
-    <p>Create professional CVs in minutes.</p>
+    <h2>CV Generator</h2>
+    <p>Creaza-ti propriul CV.</p>
     <?php if (isset($_SESSION['username'])): ?>
         <h3>Your CVs</h3>
         <?php
@@ -51,5 +52,6 @@ include '../Scripts/cv_db.php';
 <footer>
     <p>&copy; 2024 CV Generator. All rights reserved.</p>
 </footer>
+<script src="../javascript/index.js"></script>
 </body>
 </html>

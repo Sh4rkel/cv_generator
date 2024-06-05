@@ -1,3 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Add your JavaScript here
+    const themeSwitcher = document.getElementById('theme-switcher');
+
+    themeSwitcher.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+    });
 });
