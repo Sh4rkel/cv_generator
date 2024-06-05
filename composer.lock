@@ -1,7 +1,0 @@
-{
-  "name": "final-project",
-  "description": "Descrierea proiectului tau",
-  "require": {
-    "php": "^8.0"
-  }
-}
