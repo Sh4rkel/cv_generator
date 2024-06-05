@@ -1,0 +1,20 @@
+{
+  "name": "cv-generator",
+  "description": "Descriere scurtă a aplicației tale",
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "slim/slim": "^4.0",
+    "monolog/monolog": "^2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "scripts": {
+    "start": "php -S localhost:8000 -t public"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
