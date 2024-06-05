@@ -1,23 +1,30 @@
 <?php
+session_start();
 include 'db.php';
 
-// Assuming $conn is your mysqli connection
-$stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-
-// Bind the parameters to the SQL query. 'ss' indicates that both parameters are strings.
-$stmt->bind_param('ss', $username, $password);
-
-// Assuming $username and $password are the values you want to insert
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+$stmt->bind_param('s', $username);
 $username = $_POST['username'];
-$password = $_POST['password'];
 $stmt->execute();
-if ($stmt->affected_rows > 0) {
-    // Registration was successful, redirect to main page
-    header('Location: ../Pages/main.php');
-    exit;
 
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    echo "Username already taken. Please choose a different username.";
+    exit;
 } else {
+    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+    $stmt->bind_param('ss', $username, $password);
+    $password = $_POST['password'];
+    $stmt->execute();
+    if ($stmt->affected_rows > 0) {
+        // Set the session variable
+        $_SESSION['username'] = $username;
+        // Registration was successful, redirect to main page
+        header('Location: ../Pages/main.php');
+        exit;
+    }
+}
+
 $stmt->close();
 $conn->close();
-}
 ?>
