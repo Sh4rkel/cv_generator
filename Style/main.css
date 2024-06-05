@@ -13,6 +13,14 @@ header {
     text-align: center;
 }
 
+button {
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
 header h1 {
     margin: 0;
     font-size: 2em;
@@ -30,6 +38,7 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-size: 1.2em;
+    transition: color 0.3s ease;
 }
 
 nav span {
@@ -39,6 +48,15 @@ nav span {
 body.dark-theme {
     background-color: #333;
     color: #f4f4f4;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+main {
+    animation: fadeIn 1s ease-in;
 }
 
 body.dark-theme header,
@@ -70,4 +88,13 @@ footer {
 
 footer p {
     margin: 0;
+}
+@media screen and (max-width: 600px) {
+    body {
+        padding: 0 5px;
+    }
+
+    main {
+        max-width: 100%;
+    }
 }

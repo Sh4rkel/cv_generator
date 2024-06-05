@@ -38,6 +38,15 @@ label {
     color: #555;
 }
 
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0); }
+}
+
+.form-container {
+    animation: slideDown 0.5s ease-out;
+}
 input[type="text"],
 textarea {
     width: 100%;
@@ -70,4 +79,9 @@ input[type="password"] {
 input[type="text"]:hover,
 input[type="password"]:hover {
     border-color: #5cb85c;
+}
+@media screen and (max-width: 600px) {
+    .form-container {
+        width: 100%;
+    }
 }

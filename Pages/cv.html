@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create CV</title>
     <link rel="stylesheet" href="../Style/cv.css">
 </head>
 <body>
 <div class="form-container">
     <h1>Create CV</h1>
-    <form action="../Scripts/cv.php" method="post">
+    <button onclick="window.location.href='index.php'">Back</button>
+    <form action="../Scripts/cv.php" method="post" target="_blank">
         <h2>Personal Information</h2>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -37,5 +39,6 @@
     </form>
 </div>
 <script src="../javascript/cv.js"></script>
+<script src="../javascript/form-validation.js"></script>
 </body>
 </html>

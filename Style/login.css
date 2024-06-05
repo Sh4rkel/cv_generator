@@ -43,6 +43,15 @@ input[type="password"]:hover {
     border-color: #5cb85c;
 }
 
+@keyframes slideDown {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0); }
+}
+
+.form-container {
+    animation: slideDown 0.5s ease-out;
+}
+
 button {
     transition: background-color 0.3s ease;
     width: 100%;
@@ -69,4 +78,10 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    .form-container {
+        width: 100%;
+    }
 }
