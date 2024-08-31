@@ -17,9 +17,7 @@ if ($result->num_rows > 0) {
     $password = $_POST['password'];
     $stmt->execute();
     if ($stmt->affected_rows > 0) {
-        // Set the session variable
         $_SESSION['username'] = $username;
-        // Registration was successful, redirect to main page
         header('Location: ../Pages/index.php');
         exit;
     }
