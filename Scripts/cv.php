@@ -9,18 +9,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact = $_POST['contact'];
     $objective = $_POST['objective'];
     $education = $_POST['education'];
-    $skills = $_POST['skills']; // Convert the skills array to a string
+    $skills = $_POST['skills']; 
     $experience = $_POST['experience'];
     $references = $_POST['references'];
 
-    // Prepare the SQL statement
     $stmt = $conn->prepare("INSERT INTO cvs (username, name, contact, objective, education, skills, experience, `references`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");    // Bind the CV data to the SQL statement
     $stmt->bind_param('ssssssss', $username, $name, $contact, $objective, $education, $skills, $experience, $references);
 
-    // Execute the SQL statement
     $stmt->execute();
 
-    // Check if the CV was inserted successfully
     if ($stmt->affected_rows > 0) {
         echo "CV created successfully";
     } else {
